@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="EDUMaker - Laboratório Maker de Tecnologia, Inovação e Educação do IFBA Campus Eunápolis">
+<title>EDUMaker | Laboratório Maker</title>
+<link rel="stylesheet" href="../css/index.css">
+
+</head>
+<body>
+
+<!-- NOTIFICATION -->
+<div class="notification" id="notification">
+  <span class="notification-icon">✓</span>
+  <span class="notification-text">Mensagem enviada com sucesso!</span>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo" style="cursor:pointer;" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+   <img src="../img/Logo horizontal (BRANCA).png" alt="EDUMaker Logo">
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#hero">Início</a></li>
+    <li><a href="#historia">História</a></li>
+    <li><a href="#areas">Áreas</a></li>
+    <li><a href="#noticias">Notícias</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <div class="nav-toggle" id="navToggle">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  
+  <div id="particles"></div>
+
+  <div class="hero-circuit-bg"></div>
+
+  <!-- CIRCUITO TECNOLÓGICO MINIMALISTA -->
+  <svg class="hero-circuit-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <!-- Soft Glow Filters -->
+      <filter id="glow-green-soft" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur stdDeviation="4" result="blur" />
+        <feMerge>
+          <feMergeNode in="blur" />
+          <feMergeNode in="SourceGraphic" />
+        </feMerge>
+      </filter>
+      
+      <filter id="glow-cyan-soft" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur stdDeviation="4" result="blur" />
+        <feMerge>
+          <feMergeNode in="blur" />
+          <feMergeNode in="SourceGraphic" />
+        </feMerge>
+      </filter>
+
+      <!-- Central Subtle Glow -->
+      <radialGradient id="center-glow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#0084F5" stop-opacity="0.18"/>
+        <stop offset="60%" stop-color="#23F8B2" stop-opacity="0.05"/>
+        <stop offset="100%" stop-color="transparent" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+
+    <!-- Radial Central Glow -->
+    <circle cx="960" cy="540" r="550" fill="url(#center-glow)" />
+
+    <!-- Minimalist Base Circuit Traces (Faint tracks) -->
+    <g class="circuit-layer-base" stroke="rgba(0, 132, 245, 0.15)" stroke-width="1.2" fill="none">
+      <!-- Top Left & Right Frame Tracks -->
+      <path d="M 0,160 L 260,160 L 340,240 L 600,240" />
+      <path d="M 0,360 L 180,360 L 260,440 L 480,440" />
+      
+      <path d="M 1920,160 L 1660,160 L 1580,240 L 1320,240" />
+      <path d="M 1920,360 L 1740,360 L 1660,440 L 1440,440" />
+
+      <!-- Bottom Left & Right Frame Tracks -->
+      <path d="M 0,720 L 220,720 L 300,640 L 520,640" />
+      <path d="M 0,880 L 300,880 L 400,780 L 640,780" />
+
+      <path d="M 1920,720 L 1700,720 L 1620,640 L 1400,640" />
+      <path d="M 1920,880 L 1620,880 L 1520,780 L 1280,780" />
+    </g>
+
+    <!-- Minimalist Glowing Active Lines -->
+    <g class="circuit-layer-active" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path class="trace-green" stroke="#23F8B2" stroke-width="1.8" opacity="0.75" filter="url(#glow-green-soft)"
+            d="M 50,160 L 260,160 L 340,240 L 600,240" />
+      <path class="trace-cyan" stroke="#0084F5" stroke-width="1.8" opacity="0.75" filter="url(#glow-cyan-soft)"
+            d="M 1870,160 L 1660,160 L 1580,240 L 1320,240" />
+      <path class="trace-cyan" stroke="#0084F5" stroke-width="1.8" opacity="0.7" filter="url(#glow-cyan-soft)"
+            d="M 80,720 L 220,720 L 300,640 L 520,640" />
+      <path class="trace-green" stroke="#23F8B2" stroke-width="1.8" opacity="0.7" filter="url(#glow-green-soft)"
+            d="M 1840,720 L 1700,720 L 1620,640 L 1400,640" />
+
+      <!-- Gentle Light Pulses -->
+      <path class="pulse-flow-1" stroke="#ffffff" stroke-width="2.5" stroke-dasharray="18, 300" opacity="0.9" filter="url(#glow-green-soft)"
+            d="M 50,160 L 260,160 L 340,240 L 600,240" />
+      <path class="pulse-flow-2" stroke="#23F8B2" stroke-width="2.5" stroke-dasharray="18, 280" opacity="0.85" filter="url(#glow-cyan-soft)"
+            d="M 1870,160 L 1660,160 L 1580,240 L 1320,240" />
+    </g>
+
+    <!-- Sleek Minimalist IC Microchips (Clean outlines without heavy text) -->
+    <g class="circuit-chip-group" transform="translate(300, 125)">
+      <rect class="chip-base" x="0" y="0" width="70" height="70" rx="4" fill="#010042" stroke="#0084F5" stroke-width="1.2" opacity="0.8" filter="url(#glow-cyan-soft)"/>
+      <rect x="10" y="10" width="50" height="50" rx="2" fill="none" stroke="#23F8B2" stroke-width="0.8" opacity="0.5"/>
+      <circle cx="35" cy="35" r="4" fill="#23F8B2" opacity="0.8"/>
+    </g>
+
+    <g class="circuit-chip-group" transform="translate(1550, 125)">
+      <rect class="chip-base" x="0" y="0" width="70" height="70" rx="4" fill="#010042" stroke="#23F8B2" stroke-width="1.2" opacity="0.8" filter="url(#glow-green-soft)"/>
+      <rect x="10" y="10" width="50" height="50" rx="2" fill="none" stroke="#0084F5" stroke-width="0.8" opacity="0.5"/>
+      <circle cx="35" cy="35" r="4" fill="#0084F5" opacity="0.8"/>
+    </g>
+
+    <!-- Minimalist Junction Nodes -->
+    <g class="circuit-nodes">
+      <circle class="node-pulse-green" cx="260" cy="160" r="4" fill="#23F8B2" filter="url(#glow-green-soft)" />
+      <circle class="node-pulse-green" cx="340" cy="240" r="4" fill="#23F8B2" filter="url(#glow-green-soft)" />
+      <circle class="node-pulse-cyan" cx="1660" cy="160" r="4" fill="#0084F5" filter="url(#glow-cyan-soft)" />
+      <circle class="node-pulse-cyan" cx="1580" cy="240" r="4" fill="#0084F5" filter="url(#glow-cyan-soft)" />
+      <circle class="node-pulse-cyan" cx="300" cy="640" r="4" fill="#0084F5" filter="url(#glow-cyan-soft)" />
+      <circle class="node-pulse-green" cx="1620" cy="640" r="4" fill="#23F8B2" filter="url(#glow-green-soft)" />
+    </g>
+
+    <!-- Minimalist HUD Corner Brackets -->
+    <g class="circuit-hud" fill="none" stroke="rgba(0, 132, 245, 0.25)" stroke-width="1">
+      <path d="M 50,50 L 30,50 L 30,70" />
+      <path d="M 1870,50 L 1890,50 L 1890,70" />
+      <path d="M 50,1030 L 30,1030 L 30,1010" />
+      <path d="M 1870,1030 L 1890,1030 L 1890,1010" />
+    </g>
+  </svg>
+  <div class="hero-content">
+    <img src="../img/Logo horizontal (BRANCA).png" class="hero-logo" alt="Logo" >
+    <h1 class="hero-tagline">Inovar,<br>Criar, <span>Fazer.</span></h1>
+    <p class="hero-sub">Laboratório Maker · IFBA Campus Eunápolis</p>
+    <div class="hero-btns">
+      <a href="#historia" class="btn-primary"><span>Conheça nossa história</span></a>
+      <a href="#areas" class="btn-outline">Áreas de atuação</a>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-mouse"></div>
+  </div>
+</section>
+
+<!-- STATS BANNER -->
+<div class="stats-banner reveal">
+  <div>
+    <div class="stat-number stat-green" data-target="5">0</div>
+    <div class="stat-label">ANOS DE HISTÓRIA</div>
+  </div>
+  <div>
+    <div class="stat-number" data-target="120">0</div>
+    <div class="stat-label">PROJETOS DESENVOLVIDOS</div>
+  </div>
+  <div>
+    <div class="stat-number" data-target="300">0</div>
+    <div class="stat-label">ALUNOS IMPACTADOS</div>
+  </div>
+  <div>
+    <div class="stat-number stat-green" data-target="6">0</div>
+    <div class="stat-label">ÁREAS DE ATUAÇÃO</div>
+  </div>
+</div>
+
+<!-- HISTÓRIA -->
+<section id="historia">
+  <div class="historia-bg-glow"></div>
+  <p class="section-label reveal">02 — Nossa trajetória</p>
+  <h2 class="section-title reveal reveal-delay-1">A História do <span>EDUMaker</span></h2>
+  <p class="section-desc reveal reveal-delay-2">Uma jornada de inovação, criatividade e aprendizado colaborativo que transforma a educação no sertão baiano.</p>
+  
+  <div class="timeline-wrapper reveal reveal-delay-3">
+    <!-- Top Status HUD -->
+    <div class="timeline-hud-header">
+      <span class="tech-badge"><span class="pulse-dot"></span> LINHA DO TEMPO TECNOLÓGICA</span>
+      <span class="timeline-step-indicator" id="tlStepIndicator">FASE 01 / 05</span>
+    </div>
+
+    <!-- Detailed Timeline Line & Navigation Track -->
+    <div class="timeline-line-container">
+      <div class="timeline-line-track">
+        <div class="timeline-line-base"></div>
+        <div class="timeline-line-fill" id="tlProgressFill"></div>
+        <div class="timeline-ticks"></div>
+      </div>
+      <div class="timeline-nav" id="timelineNav"></div>
+    </div>
+
+    <!-- Timeline Content Slides -->
+    <div class="timeline-slides" id="timelineSlides"></div>
+
+    <!-- Cyber Controls / High-Tech Nav Buttons -->
+    <div class="timeline-controls-wrapper">
+      <div class="timeline-controls">
+        <button class="tl-btn tl-btn-prev" id="tlPrev" aria-label="Anterior">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          <span class="btn-glow"></span>
+          <span class="btn-text">ANTERIOR</span>
+        </button>
+        
+        <div class="timeline-counter-display">
+          <span class="counter-curr" id="tlCurrentNum">01</span>
+          <span class="counter-sep">/</span>
+          <span class="counter-total" id="tlTotalNum">05</span>
+        </div>
+
+        <button class="tl-btn tl-btn-next" id="tlNext" aria-label="Próximo">
+          <span class="btn-text">PRÓXIMO</span>
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+          <span class="btn-glow"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÁREAS -->
+<section id="areas">
+  <p class="section-label reveal">03 — Especialidades</p>
+  <h2 class="section-title reveal reveal-delay-1">Áreas de <span>Atuação</span></h2>
+  <p class="section-desc reveal reveal-delay-2">Exploramos múltiplas frentes da tecnologia e inovação para formar os makers do futuro. <br><span style="color:var(--green); font-size:13px; font-family:monospace;">🖼️ Clique em qualquer área para abrir o carrossel de fotos e detalhes!</span></p>
+  <div class="areas-grid reveal reveal-delay-3" id="areasGrid"></div>
+</section>
+
+<!-- MODAL DE CARROSSEL DAS ÁREAS DE ATUAÇÃO -->
+<div class="area-modal-overlay" id="areaModalOverlay">
+  <div class="area-modal-card">
+    <button class="area-modal-close" id="areaModalClose" aria-label="Fechar Modal">&times;</button>
+    
+    <!-- Modal Header -->
+    <div class="area-modal-header">
+      <div class="area-modal-badge" id="areaModalBadge">
+        <span class="badge-icon" id="areaModalIcon">🤖</span> 
+        <span id="areaModalCategory">ÁREA DE ATUAÇÃO</span>
+      </div>
+      <h3 class="area-modal-title" id="areaModalTitle">Robótica & Automação</h3>
+    </div>
+
+    <!-- Media Carousel Frame -->
+    <div class="area-carousel-container">
+      <div class="area-carousel-track" id="areaCarouselTrack"></div>
+      
+      <!-- Nav Arrows -->
+      <button class="area-nav-btn area-prev" id="areaPrevBtn" aria-label="Foto Anterior">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <button class="area-nav-btn area-next" id="areaNextBtn" aria-label="Próxima Foto">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+
+      <!-- Counter Badge & Dots -->
+      <div class="area-carousel-info">
+        <div class="area-counter-badge" id="areaCounterBadge">01 / 02</div>
+        <div class="area-carousel-dots" id="areaCarouselDots"></div>
+      </div>
+    </div>
+
+    <!-- Area Description Content -->
+    <div class="area-modal-body">
+      <h4 class="area-body-subtitle" id="areaBodySubtitle">Projetos & Pessoas em Ação</h4>
+      <p class="area-body-desc" id="areaBodyDesc"></p>
+      
+      <div class="area-tags-wrapper" id="areaTagsWrapper"></div>
+    </div>
+  </div>
+</div>
+
+<!-- NOTÍCIAS -->
+<section id="noticias">
+  <p class="section-label reveal">04 — Aconteceu no lab</p>
+  <h2 class="section-title reveal reveal-delay-1">Notícias & <span>Comunicados</span></h2>
+  <div class="news-grid reveal reveal-delay-2">
+    <div class="news-featured">
+      <div class="timeline-img">
+         <img src="../img/robo.jpg" alt="EDUMaker Destaque" height="400px">
+      </div>
+      <span class="news-badge">DESTAQUE</span>
+      <div class="news-date">JUNHO 2025</div>
+      <h3 class="news-featured-title">EDUMaker representa IFBA em Feira Nacional de Inovação Tecnológica</h3>
+      <p class="news-featured-desc">Alunos do laboratório maker apresentaram projetos de robótica e impressão 3D em evento nacional, conquistando reconhecimento e visibilidade para o campus.</p>
+    </div>
+    <div class="news-list">
+      <div class="news-item">
+        <div class="news-item-line"></div>
+        <div class="news-date">MAIO 2025</div>
+        <h4 class="news-title">Novo equipamento: impressora 3D de alta resolução</h4>
+        <p class="news-excerpt">O laboratório recebe equipamento de última geração para projetos avançados.</p>
+      </div>
+      <div class="news-item">
+        <div class="news-item-line"></div>
+        <div class="news-date">ABRIL 2025</div>
+        <h4 class="news-title">Workshop de Robótica abre vagas para comunidade</h4>
+        <p class="news-excerpt">Inscrições abertas para o workshop gratuito destinado a estudantes do ensino médio.</p>
+      </div>
+      <div class="news-item">
+        <div class="news-item-line"></div>
+        <div class="news-date">MARÇO 2025</div>
+        <h4 class="news-title">Parceria com empresa de tecnologia de Salvador</h4>
+        <p class="news-excerpt">Novo convênio vai oferecer estágios e capacitação para alunos do EDUMaker.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <p class="section-label reveal">05 — Fale conosco</p>
+  <h2 class="section-title reveal reveal-delay-1">Entre em <span>Contato</span></h2>
+  <div class="contact-grid">
+    <div class="contact-info reveal reveal-delay-2">
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-label">LOCALIZAÇÃO</div>
+          <div class="contact-value">IFBA Campus Eunápolis<br>Eunápolis — BA</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <div class="contact-label">E-MAIL</div>
+          <div class="contact-value">edumaker@ifba.edu.br</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📱</div>
+        <div>
+          <div class="contact-label">WHATSAPP</div>
+          <div class="contact-value">(73) 9 9999-0000</div>
+        </div>
+      </div>
+      <div>
+        <p class="section-label" style="margin-bottom:16px">Redes Sociais</p>
+        <div class="socials">
+          <a href="#" class="social-btn" title="Instagram">📷</a>
+          <a href="#" class="social-btn" title="Facebook">👤</a>
+          <a href="#" class="social-btn" title="YouTube">▶️</a>
+          <a href="#" class="social-btn" title="LinkedIn">💼</a>
+          <a href="#" class="social-btn" title="WhatsApp">💬</a>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form reveal reveal-delay-3">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Nome</label>
+          <input class="form-input" type="text" placeholder="Seu nome completo" id="fNome">
+        </div>
+        <div class="form-group">
+          <label class="form-label">E-mail</label>
+          <input class="form-input" type="email" placeholder="seu@email.com" id="fEmail">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Assunto</label>
+        <input class="form-input" type="text" placeholder="Como podemos ajudar?" id="fAssunto">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Mensagem</label>
+        <textarea class="form-textarea" placeholder="Sua mensagem..." id="fMsg"></textarea>
+      </div>
+      <button class="btn-send" id="sendBtn">Enviar Mensagem</button>
+    </div>
+  </div>
+</section>
+
+<!-- RODAPÉ -->
+<footer>
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="../img/Logo horizontal (BRANCA).png" alt="EDUMaker">
+    </div>
+    <div class="footer-info">
+      <p>EDUMaker - IFBA Campus Eunápolis</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/script.js"></script>
+</body>
+</html>
