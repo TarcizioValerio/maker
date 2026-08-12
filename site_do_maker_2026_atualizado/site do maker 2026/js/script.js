@@ -551,4 +551,35 @@ document.addEventListener("DOMContentLoaded", () => {
     email.value = "";
   });
 
+  /* ================= EQUIPMENT CARDS — MOUSE GLOW ================= */
+  const equipCards = document.querySelectorAll('.equip-card');
+
+  equipCards.forEach(card => {
+    // Radial glow that follows the mouse
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      card.style.setProperty('--mouse-x', `${x}%`);
+      card.style.setProperty('--mouse-y', `${y}%`);
+    });
+
+    // 3D tilt effect
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dx = (e.clientX - cx) / (rect.width / 2);
+      const dy = (e.clientY - cy) / (rect.height / 2);
+      const tiltX = dy * -6;  // max 6deg
+      const tiltY = dx * 6;
+      card.style.transform = `translateY(-12px) scale(1.02) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+
 });
+
